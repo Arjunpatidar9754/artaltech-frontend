@@ -1,7 +1,7 @@
 import ACTIONS from './index'
 import axios from 'axios'
 
-const HOST_URL = process.env.HOST_URL || 'localhost:3001'
+const REACT_APP_API_HOSTNAME = process.env.REACT_APP_API_HOSTNAME || 'localhost:3001'
 export const dispatchLogin = () => {
     return {
         type: ACTIONS.LOGIN
@@ -9,7 +9,7 @@ export const dispatchLogin = () => {
 }
 
 export const fetchUser = async (token) => {
-    const res = await axios.get(`${HOST_URL}/user/infor`, {
+    const res = await axios.get(`${REACT_APP_API_HOSTNAME}/user/infor`, {
         headers: {Authorization: token}
     })
     return res

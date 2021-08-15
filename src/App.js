@@ -16,7 +16,7 @@ function App() {
     const firstLogin = localStorage.getItem('firstLogin')
     if(firstLogin){
       const getToken = async () => {
-        const res = await axios.post(`${process.env.HOST_URL}/user/refresh_token`, null)
+        const res = await axios.post(`${process.env.REACT_APP_API_HOSTNAME}/user/refresh_token`, null)
         dispatch({type: 'GET_TOKEN', payload: res.data.access_token})
       }
       getToken()

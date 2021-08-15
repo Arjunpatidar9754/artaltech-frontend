@@ -34,7 +34,7 @@ function EditUser() {
     const handleUpdate = async () => {
         try {
             if(num % 2 !== 0){
-                const res = await axios.patch(`${process.env.HOST_URL}/user/update_role/${editUser._id}`, {
+                const res = await axios.patch(`${process.env.REACT_APP_API_HOSTNAME}/user/update_role/${editUser._id}`, {
                     role: checkAdmin ? 1 : 0
                 }, {
                     headers: {Authorization: token}

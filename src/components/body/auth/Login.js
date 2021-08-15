@@ -31,7 +31,7 @@ function Login() {
     const handleSubmit = async e => {
         e.preventDefault()
         try {
-            const res = await axios.post(`${process.env.HOST_URL}/user/login`, {email, password})
+            const res = await axios.post(`${process.env.REACT_APP_API_HOSTNAME}/user/login`, {email, password})
             setUser({...user, err: '', success: res.data.msg})
 
             localStorage.setItem('firstLogin', true)
@@ -47,7 +47,7 @@ function Login() {
 
     const responseGoogle = async (response) => {
         try {
-            const res = await axios.post(`${process.env.HOST_URL}/user/google_login`, {tokenId: response.tokenId})
+            const res = await axios.post(`${process.env.REACT_APP_API_HOSTNAME}/user/google_login`, {tokenId: response.tokenId})
 
             setUser({...user, error:'', success: res.data.msg})
             localStorage.setItem('firstLogin', true)
@@ -63,7 +63,7 @@ function Login() {
     // const responseFacebook = async (response) => {
     //     try {
     //         const {accessToken, userID} = response
-    //         const res = await axios.post(`${process.env.HOST_URL}/user/facebook_login`, {accessToken, userID})
+    //         const res = await axios.post(`${process.env.REACT_APP_API_HOSTNAME}/user/facebook_login`, {accessToken, userID})
 
     //         setUser({...user, error:'', success: res.data.msg})
     //         localStorage.setItem('firstLogin', true)
