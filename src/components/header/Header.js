@@ -12,7 +12,7 @@ function Header() {
 
     const handleLogout = async () => {
         try {
-            await axios.get(`${process.env.BACK_LINK}/user/logout`)
+            await axios.get(`${process.env.HOST_URL}/user/logout`)
             localStorage.removeItem('firstLogin')
             window.location.href = "/";
         } catch (err) {

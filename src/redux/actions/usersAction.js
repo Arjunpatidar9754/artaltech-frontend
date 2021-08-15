@@ -1,8 +1,10 @@
 import ACTIONS from './index'
 import axios from 'axios'
 
+const HOST_URL = process.env.HOST_URL || 'localhost:3001'
+
 export const fetchAllUsers = async (token) => {
-    const res = await axios.get('/user/all_infor', {
+    const res = await axios.get(`${HOST_URL}/user/all_infor`, {
         headers: {Authorization: token}
     })
     return res

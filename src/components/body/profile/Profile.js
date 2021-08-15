@@ -60,7 +60,7 @@ function Profile() {
             formData.append('file', file)
 
             setLoading(true)
-            const res = await axios.post(`${process.env.BACK_LINK}/api/upload_avatar`, formData, {
+            const res = await axios.post(`${process.env.HOST_URL}/api/upload_avatar`, formData, {
                 headers: {'content-type': 'multipart/form-data', Authorization: token}
             })
 
@@ -74,7 +74,7 @@ function Profile() {
 
     const updateInfor = () => {
         try {
-            axios.patch(`${process.env.BACK_LINK}/user/update`, {
+            axios.patch(`${process.env.HOST_URL}/user/update`, {
                 name: name ? name : user.name,
                 avatar: avatar ? avatar : user.avatar
             },{
@@ -95,7 +95,7 @@ function Profile() {
             return setData({...data, err: "Password did not match.", success: ''})
 
         try {
-            axios.post(`${process.env.BACK_LINK}/user/reset`, {password},{
+            axios.post(`${process.env.HOST_URL}/user/reset`, {password},{
                 headers: {Authorization: token}
             })
 
@@ -115,7 +115,7 @@ function Profile() {
             if(user._id !== id){
                 if(window.confirm("Are you sure you want to delete this account?")){
                     setLoading(true)
-                    await axios.delete(`${process.env.BACK_LINK}/user/delete/${id}`, {
+                    await axios.delete(`${process.env.HOST_URL}/user/delete/${id}`, {
                         headers: {Authorization: token}
                     })
                     setLoading(false)

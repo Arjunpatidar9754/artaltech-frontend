@@ -24,7 +24,7 @@ function ForgotPassword() {
             return setData({...data, err: 'Invalid emails.', success: ''})
             
         try {
-            const res = await axios.post(`${process.env.BACK_LINK}/user/forgot`, {email})
+            const res = await axios.post(`${process.env.HOST_URL}/user/forgot`, {email})
 
             return setData({...data, err: '', success: res.data.msg})
         } catch (err) {

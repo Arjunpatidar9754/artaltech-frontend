@@ -32,7 +32,7 @@ function ResetPassword() {
             return setData({...data, err: "Password did not match.", success: ''})
         
         try {
-            const res = await axios.post(`${process.env.BACK_LINK}/user/reset`, {password}, {
+            const res = await axios.post(`${process.env.HOST_URL}/user/reset`, {password}, {
                 headers: {Authorization: token}
             })
 

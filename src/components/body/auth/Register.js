@@ -40,7 +40,7 @@ function Register() {
             return setUser({...user, err: "Password did not match.", success: ''})
 
         try {
-            const res = await axios.post(`${process.env.BACK_LINK}/user/register`, {
+            const res = await axios.post(`${process.env.HOST_URL}/user/register`, {
                 name, email, password
             })
 

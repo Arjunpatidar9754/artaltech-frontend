@@ -1,6 +1,7 @@
 import ACTIONS from './index'
 import axios from 'axios'
 
+const HOST_URL = process.env.HOST_URL || 'localhost:3001'
 export const dispatchLogin = () => {
     return {
         type: ACTIONS.LOGIN
@@ -8,7 +9,7 @@ export const dispatchLogin = () => {
 }
 
 export const fetchUser = async (token) => {
-    const res = await axios.get('/user/infor', {
+    const res = await axios.get(`${HOST_URL}/user/infor`, {
         headers: {Authorization: token}
     })
     return res
